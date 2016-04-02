@@ -74,22 +74,21 @@ class Tree
 
     public function makeTree($id_parent)
     {
-        if ( isset( $this->groupsArray[ $id_parent ] ) )
+        if ( !isset( $this->groupsArray[ $id_parent ] ) ) return;
+
+        foreach( $this->groupsArray[ $id_parent ] as $value )
         {
-            foreach( $this->groupsArray[ $id_parent ] as $value )
-            {
-                $this->currentGroupId       = $value[ 'id' ];
-                $this->currentGroupIdParent = $value[ 'id_parent' ];
-                $this->currentGroupName     = $value[ 'name' ];
+            $this->currentGroupId       = $value[ 'id' ];
+            $this->currentGroupIdParent = $value[ 'id_parent' ];
+            $this->currentGroupName     = $value[ 'name' ];
 
-                $this->outputList = $this->wrapInTagA( $this->currentGroupName , $this->url );
-                $this->outputList = $this->wrapInTagLi(  $this->outputList );
+            $this->outputList = $this->wrapInTagA( $this->currentGroupName , $this->url );
+            $this->outputList = $this->wrapInTagLi(  $this->outputList );
 
-                echo "<ul>";
-                echo $this->outputList;
-                $this->makeTree( $this->currentGroupId );
-                echo "</ul>";
-            }
+            echo "<ul>";
+            echo $this->outputList;
+            $this->makeTree( $this->currentGroupId );
+            echo "</ul>";
         }
     }
 

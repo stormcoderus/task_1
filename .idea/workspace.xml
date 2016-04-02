@@ -37,12 +37,12 @@
           <file leaf-file-name="Tree.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/lib/Tree.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.68846816">
-                  <caret line="82" column="63" selection-start-line="82" selection-start-column="63" selection-end-line="82" selection-end-column="63" />
+                <state vertical-scroll-proportion="0.44061962">
+                  <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
                   <folding>
-                    <marker date="1459610366070" expanded="true" signature="868:890" placeholder="SELECT * FRO... groups" />
-                    <marker date="1459610366070" expanded="true" signature="2150:2201" placeholder="..." />
-                    <marker date="1459610366070" expanded="true" signature="2405:2480" placeholder="..." />
+                    <marker date="1459614001969" expanded="true" signature="868:890" placeholder="SELECT * FRO... groups" />
+                    <marker date="1459614001969" expanded="true" signature="2134:2181" placeholder="..." />
+                    <marker date="1459614001969" expanded="true" signature="2373:2440" placeholder="..." />
                   </folding>
                 </state>
               </provider>
@@ -280,9 +280,9 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="53" column="29" selection-start-line="53" selection-start-column="29" selection-end-line="53" selection-end-column="29" />
           <folding>
-            <marker date="1459610366070" expanded="true" signature="868:890" placeholder="SELECT * FRO... groups" />
-            <marker date="1459610366070" expanded="true" signature="2150:2201" placeholder="..." />
-            <marker date="1459610366070" expanded="true" signature="2405:2480" placeholder="..." />
+            <marker date="1459614001969" expanded="true" signature="868:890" placeholder="SELECT * FRO... groups" />
+            <marker date="1459614001969" expanded="true" signature="2134:2181" placeholder="..." />
+            <marker date="1459614001969" expanded="true" signature="2373:2440" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -308,9 +308,9 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1459610366070" expanded="true" signature="868:890" placeholder="SELECT * FRO... groups" />
-            <marker date="1459610366070" expanded="true" signature="2150:2201" placeholder="..." />
-            <marker date="1459610366070" expanded="true" signature="2405:2480" placeholder="..." />
+            <marker date="1459614001969" expanded="true" signature="868:890" placeholder="SELECT * FRO... groups" />
+            <marker date="1459614001969" expanded="true" signature="2134:2181" placeholder="..." />
+            <marker date="1459614001969" expanded="true" signature="2373:2440" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -341,12 +341,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/Tree.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.68846816">
-          <caret line="82" column="63" selection-start-line="82" selection-start-column="63" selection-end-line="82" selection-end-column="63" />
+        <state vertical-scroll-proportion="0.44061962">
+          <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
           <folding>
-            <marker date="1459610366070" expanded="true" signature="868:890" placeholder="SELECT * FRO... groups" />
-            <marker date="1459610366070" expanded="true" signature="2150:2201" placeholder="..." />
-            <marker date="1459610366070" expanded="true" signature="2405:2480" placeholder="..." />
+            <marker date="1459614001969" expanded="true" signature="868:890" placeholder="SELECT * FRO... groups" />
+            <marker date="1459614001969" expanded="true" signature="2134:2181" placeholder="..." />
+            <marker date="1459614001969" expanded="true" signature="2373:2440" placeholder="..." />
           </folding>
         </state>
       </provider>
