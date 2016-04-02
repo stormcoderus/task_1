@@ -1,23 +1,21 @@
 <?php
 class Tree
 {
-    private $db = null;
-    private $groupsArray = [];
-    private $url = "";
-    private $currentGroupId = null;
+    private $db                   = null;
+    private $groupsArray          = [];
+    private $currentGroupId       = null;
     private $currentGroupIdParent = null;
-    private $currentGroupName = "";
-    private $outputList = "";
+    private $currentGroupName     = "";
+    private $lastGroupId          = null;
+    private $outputList           = "";
+    private $url                  = "";
+    private $groupId              = null;
 
-    public  $groupId;
-    public  $row = [];
-
-    public function __construct($groupId)
+    public function __construct( $groupId )
     {
-        $this->db         = new PDO("mysql:dbname=test_base;host=localhost;charset=UTF8;", "root", "");
+        $this->db          = new PDO( "mysql:dbname=test_base;host=localhost;charset=UTF8;", "root", "" );
         $this->groupsArray = $this->getGroups();
-        $this->groupId    = $groupId;
-        $this->url        = "index.php?group=" . $this->groupId;
+        $this->groupId     = $groupId;
     }
 
     /**
@@ -30,6 +28,7 @@ class Tree
     {
         $query = $this->db->prepare( "SELECT * FROM `groups`" );
         $query->execute();
+
         $result = $query->fetchAll();
         $return = [];
 
@@ -40,14 +39,7 @@ class Tree
         return $return;
     }
 
-    private function wrapInTagUl( $expression )
-    {
-        $ulOpen  = "<ul>";
-        $ulClose = "</ul>";
-
-        return $ulOpen . $expression . $ulClose;
-    }
-
+    // Метод обёртки выражения в тег <li>
     private function wrapInTagLi( $expression )
     {
         $liOpen  = "<li>";
@@ -56,38 +48,81 @@ class Tree
         return $liOpen . $expression . $liClose;
     }
 
+    // Метод обёртки выражения в тег <a>
     private function wrapInTagA( $expression, $url )
     {
-        $aOpen  = "<a href=" . $url . ">";
+        $aOpen  = "<a href=$url>";
         $aClose = "</a>";
 
         return $aOpen . $expression . $aClose;
     }
 
+    /**
+     * Метод проверяет, на достижение уровня, который был запрошен
+     * в GET параметре groupId
+     *
     private function checkBranch()
     {
-        if ( $this->currentGroupId == $this->groupId )
+        if ( $this->groupId == $this->currentGroupId )
         {
+            echo 'First';
             $this->makeTree( $this->currentGroupId );
         }
+        else if ( $this->groupId == $this->currentGroupIdParent )
+        {
+            echo 'Second';
+            $this->makeTree( $this->currentGroupId );
+        } else {
+            echo 'Third';
+        }
+
     }
 
-    public function makeTree($id_parent)
+    private function listTree()
     {
+        echo "<ul>";
+
+        echo $this->outputList;
+        $this->checkBranch();
+
+        echo "</ul>";
+    }
+    */
+    /**
+     * Метод вывода дерева
+     * @param Integer $id_parent - id-родителя
+     */
+    public function makeTree( $id_parent )
+    {
+        // Если группа с $id_parent не найдена, прекратить выполнение
         if ( !isset( $this->groupsArray[ $id_parent ] ) ) return;
 
+        // Перебор массива групп c ключом id_parent
         foreach( $this->groupsArray[ $id_parent ] as $value )
         {
+            echo '<script>alert("Making tree");</script>';
+            // Инициализация параметров текущей группы
             $this->currentGroupId       = $value[ 'id' ];
             $this->currentGroupIdParent = $value[ 'id_parent' ];
             $this->currentGroupName     = $value[ 'name' ];
 
-            $this->outputList = $this->wrapInTagA( $this->currentGroupName , $this->url );
-            $this->outputList = $this->wrapInTagLi(  $this->outputList );
+            $this->url                  = "index.php?group={$this->currentGroupId}";
 
+            // Составление li - a списка
+            $this->outputList           = $this->wrapInTagA( $this->currentGroupName, $this->url );
+            $this->outputList           = $this->wrapInTagLi(  $this->outputList );
+
+            // Вывод дерева рекурсией
             echo "<ul>";
+
             echo $this->outputList;
-            $this->makeTree( $this->currentGroupId );
+
+            if ( $this->groupId == $this->currentGroupId )
+            {
+                echo 'First';
+                $this->makeTree( $this->currentGroupId );
+                echo 'First1';
+            }
             echo "</ul>";
         }
     }

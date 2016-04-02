@@ -7,13 +7,8 @@
 <body>
 
 <?php
-if ( !isset( $_GET['group'] ) ) {
-    $_GET['group'] = 0;
-}
-$groupId = $_GET['group'];
-
 require_once 'lib/Tree.php';
-$tree = new Tree($groupId);
+$tree = new Tree($_GET['group']);
 ?>
 
 <div id="content">
